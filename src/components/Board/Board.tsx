@@ -1,7 +1,9 @@
 import Square from '../Square';
 import './Board.css';
 
-type BoardProps = {}
+type BoardProps = {
+    squares: string[];
+}
 
 export const Board = ({ }: BoardProps) => (
     <div className='board'>
