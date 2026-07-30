@@ -3,18 +3,13 @@ import './Board.css';
 
 type BoardProps = {
     squares: string[];
+    click: (index: number) => void;
 }
 
-export const Board = ({ }: BoardProps) => (
+export const Board = ({ squares, click }: BoardProps) => (
     <div className='board'>
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
+        {squares.map((square, index) => (
+            <Square key={index} value={square} onClick={() => click(index)} />
+        ))}
     </div>
 );

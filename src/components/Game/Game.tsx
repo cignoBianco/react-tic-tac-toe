@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Board from '../Board';
 import './Game.css'
-import { calculateWinner } from '@/helpers/helper';
+import { calculateWinner } from '../../helpers/helper';
 
 type GameProps = {
 
@@ -15,11 +15,20 @@ export const Game = ({ }: GameProps) => {
 
     const handleClick = (index: number) => {
         const boardCopy = [...board];
+
+        if (winner || boardCopy[index]) return;
+
+        boardCopy[index] = xIsNext ? 'x' : 'o';
+        setXIsNext(!xIsNext);
+        const newMovesPassed = movesPassed + 1;
+        setMovesPassed(newMovesPassed);
+        if (newMovesPassed === 9) alert('ничья');
+        setBoard(boardCopy);
     };
 
     return (
         <div className="wrapper">
-            <Board squares={board} />
+            <Board squares={board} click={handleClick} />
         </div>
     )
 };
