@@ -6,8 +6,8 @@ export const calculateWinner = (squares:string[]) => {
         [0, 3, 6],
         [1, 4, 7],
         [2, 5, 8],
-        [1, 4, 8],
-        [0, 3, 6]
+        [0, 4, 8],
+        [2, 4, 6]
     ]
 
     for (let i = 0; i < lines.length; i++) {
@@ -17,6 +17,6 @@ export const calculateWinner = (squares:string[]) => {
             }
         }
     }
-    
+
     return null;
 }
